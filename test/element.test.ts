@@ -32,6 +32,12 @@ describe('<kelsoncm-tiptap>', () => {
     expect(b.value).toBe('<p>atributo</p>');
   });
 
+  it('drops the trailing empty paragraph from the value', () => {
+    const el = mount('<kelsoncm-tiptap value="<ul><li><p>a</p></li></ul>"></kelsoncm-tiptap>');
+    expect(el.editor!.editor.getHTML()).toMatch(/<p><\/p>$/);
+    expect(el.value).toBe('<ul><li><p>a</p></li></ul>');
+  });
+
   it('gets and sets the value, empty documents become ""', () => {
     const el = mount('<kelsoncm-tiptap></kelsoncm-tiptap>');
     expect(el.value).toBe('');

@@ -287,7 +287,8 @@ export class KelsonTiptapElement extends HTMLElement {
   #html(): string {
     const ui = this.#ui;
     if (!ui) return '';
-    return ui.editor.isEmpty ? '' : ui.editor.getHTML();
+    // The empty paragraph the editor keeps after tables/lists is an editing aid, not content.
+    return ui.editor.isEmpty ? '' : ui.editor.getHTML().replace(/(?:<p><\/p>)+$/, '');
   }
 
   #sync(): void {
