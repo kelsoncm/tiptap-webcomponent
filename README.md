@@ -1,7 +1,7 @@
 # &lt;kelsoncm-tiptap&gt;
 
 Editor de texto rico como **web component**, sem framework, sobre o
-[@kelsoncm/tiptap-core](https://github.com/kelsoncm/tiptap-core) (Tiptap 3). Funciona em HTML puro,
+[@kelsoncm/tiptap-core](https://github.com/tiptap-by-kelsoncm/tiptap-core) (Tiptap 3). Funciona em HTML puro,
 Django, PHP, Vue, React, Angular etc., e participa de formulários como um `<textarea>`.
 
 ## Instalação
@@ -11,7 +11,7 @@ Sem bundler, use o arquivo único da release:
 ```html
 <script
   type="module"
-  src="https://github.com/kelsoncm/tiptap-webcomponent/releases/download/v0.1.0/kelsoncm-tiptap.bundle.js"
+  src="https://github.com/tiptap-by-kelsoncm/tiptap-webcomponent/releases/download/v0.1.0/kelsoncm-tiptap.bundle.js"
 ></script>
 ```
 
@@ -25,7 +25,7 @@ allow-remote=root
 ```
 
 ```bash
-npm install https://github.com/kelsoncm/tiptap-webcomponent/releases/download/v0.1.0/kelsoncm-tiptap-webcomponent-0.1.0.tgz
+npm install https://github.com/tiptap-by-kelsoncm/tiptap-webcomponent/releases/download/v0.1.0/kelsoncm-tiptap-webcomponent-0.1.0.tgz
 ```
 
 ```ts
