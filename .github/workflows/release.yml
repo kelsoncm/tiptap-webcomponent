@@ -37,11 +37,8 @@ jobs:
           files: |
             *.tgz
             dist/kelsoncm-tiptap.bundle.js
-      # Trusted publishing (OIDC, needs id-token: write and npm 11.5.1+) as configured on npmjs.com;
-      # the NPM_TOKEN secret is only a fallback.
+      # Trusted publishing only (OIDC, needs id-token: write and npm 11.5.1+), as configured on npmjs.com.
       - name: Atualizar o npm (trusted publishing)
         run: npm install -g npm@^11.5.1
       - name: Publicar no npm
         run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

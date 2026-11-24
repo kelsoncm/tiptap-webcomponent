@@ -2,6 +2,12 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/); versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.1.6] - 2026-11-24
+
+### Removido
+
+- `NPM_TOKEN` do passo de publish: a release publica no npm só por _Trusted Publishing_ (OIDC).
+
 ## [0.1.5] - 2026-11-24
 
 ### Alterado
