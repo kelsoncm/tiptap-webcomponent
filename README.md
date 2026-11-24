@@ -6,31 +6,25 @@ Django, PHP, Vue, React, Angular etc., e participa de formulários como um `<tex
 
 ## Instalação
 
-Sem bundler, use o arquivo único da release:
-
-```html
-<script
-  type="module"
-  src="https://github.com/tiptap-by-kelsoncm/tiptap-webcomponent/releases/download/v0.1.0/kelsoncm-tiptap.bundle.js"
-></script>
-```
-
-(Hospede o arquivo no seu servidor ou CDN; o GitHub não serve assets com o tipo JavaScript.)
-
-Com bundler (Vite, webpack...). Enquanto os pacotes não estão no registro do npm, o npm 12 exige
-liberar dependências por URL no `.npmrc` do seu projeto (só as declaradas por ele):
-
-```ini
-allow-remote=root
-```
+Com bundler (Vite, webpack...):
 
 ```bash
-npm install https://github.com/tiptap-by-kelsoncm/tiptap-webcomponent/releases/download/v0.1.0/kelsoncm-tiptap-webcomponent-0.1.0.tgz
+npm install @kelsoncm/tiptap-webcomponent
 ```
 
 ```ts
 import '@kelsoncm/tiptap-webcomponent'; // registra <kelsoncm-tiptap> e injeta o CSS
 ```
+
+Sem bundler, use o arquivo único `kelsoncm-tiptap.bundle.js`, que vem no pacote (`dist/`) e na
+[release](https://github.com/tiptap-by-kelsoncm/tiptap-webcomponent/releases/latest):
+
+```html
+<script type="module" src="/static/kelsoncm-tiptap.bundle.js"></script>
+```
+
+(Hospede o arquivo no seu servidor ou use um CDN de pacotes npm; o GitHub não serve assets com o tipo
+JavaScript.)
 
 ## Uso
 
