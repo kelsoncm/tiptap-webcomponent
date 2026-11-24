@@ -1,6 +1,6 @@
 {
   "name": "@kelsoncm/tiptap-webcomponent",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Web component <kelsoncm-tiptap>: editor de texto rico sobre @kelsoncm/tiptap-core, sem framework.",
   "license": "MIT",
   "author": "Kelson da Costa Medeiros <kelsoncm@gmail.com>",
@@ -51,7 +51,7 @@
     "prepare": "npm run build"
   },
   "dependencies": {
-    "@kelsoncm/tiptap-core": "^0.18.2",
+    "@kelsoncm/tiptap-core": "^0.18.4",
     "@tiptap/core": "^3.35.0",
     "@tiptap/pm": "^3.35.0"
   },
