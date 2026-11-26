@@ -2,6 +2,16 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/); versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.2.0] - 2026-11-26
+
+### Adicionado
+
+- Atributo `character-count` (`noSpaces` | `withSpaces` | `text`): regra de contagem de caracteres para `max-characters`, `min-characters` e a barra de status. `text` conta o texto com espaços, sem separador entre blocos e sem quebras de linha. Sem o atributo, a contagem continua sem espaços.
+
+### Alterado
+
+- `@kelsoncm/tiptap-core` atualizado para 0.19.0, que também corrige o corte de listas coladas do Word.
+
 ## [0.1.6] - 2026-11-24
 
 ### Removido

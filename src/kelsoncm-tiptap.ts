@@ -2,10 +2,12 @@ import {
   createEditorUI,
   EDITOR_MODES,
   TOOLBAR_PRESETS,
+  type CharacterCountMode,
   type DocumentLimits,
   type EditorMode,
   type EditorUI,
   type EditorUIOptions,
+  type NumericLimit,
 } from '@kelsoncm/tiptap-core';
 
 export const TAG_NAME = 'kelsoncm-tiptap';
@@ -32,11 +34,12 @@ const OBSERVED = [
   'min-characters',
   'min-words',
   'min-paragraphs',
+  'character-count',
   'status-bar',
   'required',
 ] as const;
 
-const LIMIT_ATTRIBUTES: Record<string, keyof DocumentLimits> = {
+const LIMIT_ATTRIBUTES: Record<string, NumericLimit> = {
   'max-characters': 'maxCharacters',
   'max-words': 'maxWords',
   'max-paragraphs': 'maxParagraphs',
@@ -45,11 +48,14 @@ const LIMIT_ATTRIBUTES: Record<string, keyof DocumentLimits> = {
   'min-paragraphs': 'minParagraphs',
 };
 
+const CHARACTER_COUNT_MODES: readonly CharacterCountMode[] = ['noSpaces', 'withSpaces', 'text'];
+
 /** Attributes that require a new editor instance when they change. */
 const REBUILD = new Set<string>([
   'toolbar',
   'placeholder',
   'status-bar',
+  'character-count',
   ...Object.keys(LIMIT_ATTRIBUTES),
 ]);
 
@@ -70,7 +76,7 @@ export function injectStyles(css: string, doc: Document = document): void {
  *
  * Attributes: `name`, `value` (initial HTML), `mode`, `toolbar`, `locale`, `readonly`,
  * `disabled`, `required`, `placeholder`, `min-height`, `max-height`, `status-bar`,
- * `max-/min-characters|words|paragraphs`.
+ * `max-/min-characters|words|paragraphs`, `character-count` (`noSpaces` | `withSpaces` | `text`).
  * Property `options` takes everything else of `EditorUIOptions` (mentions, media,
  * revision, plugins...). Events: `kt-ready`, `kt-change`, `input`, `change`, `focus`, `blur`.
  */
@@ -221,6 +227,16 @@ export class KelsonTiptapElement extends HTMLElement {
     for (const [attribute, key] of Object.entries(LIMIT_ATTRIBUTES)) {
       const value = Number(this.getAttribute(attribute));
       if (this.hasAttribute(attribute) && Number.isFinite(value) && value >= 0) limits[key] = value;
+    }
+    const count = this.getAttribute('character-count');
+    if (count !== null) {
+      if ((CHARACTER_COUNT_MODES as readonly string[]).includes(count)) {
+        limits.characterCount = count as CharacterCountMode;
+      } else {
+        console.warn(
+          `<${TAG_NAME}>: character-count="${count}" inválido; use ${CHARACTER_COUNT_MODES.join(', ')}.`,
+        );
+      }
     }
     return limits;
   }
