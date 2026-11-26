@@ -97,6 +97,25 @@ describe('<kelsoncm-tiptap>', () => {
     expect(el.value).toBe('<p>um dois três</p>');
   });
 
+  it('counts characters by the character-count attribute', () => {
+    const el = mount(
+      '<kelsoncm-tiptap value="<p>ab cd</p><p>ef</p>" max-characters="10"></kelsoncm-tiptap>',
+    );
+    const counter = (): string | null | undefined =>
+      el.querySelector('[data-counter="characters"]')?.textContent;
+    expect(counter()).toBe('Caracteres: 6/10');
+    el.setAttribute('character-count', 'text');
+    expect(el.editor!.limits.characterCount).toBe('text');
+    expect(counter()).toBe('Caracteres: 7/10');
+    el.setAttribute('character-count', 'withSpaces');
+    expect(counter()).toBe('Caracteres: 8/10');
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
+    el.setAttribute('character-count', 'invalido');
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining('character-count="invalido"'));
+    expect(counter()).toBe('Caracteres: 6/10');
+    warn.mockRestore();
+  });
+
   it('participates in forms when ElementInternals is available', () => {
     const form = document.createElement('form');
     form.innerHTML = '<kelsoncm-tiptap name="texto" required></kelsoncm-tiptap>';

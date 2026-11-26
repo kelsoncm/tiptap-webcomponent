@@ -41,19 +41,20 @@ O valor enviado é o HTML do editor (vazio quando o documento está vazio).
 
 ### Atributos
 
-| Atributo                                        | Descrição                                                      |
-| ----------------------------------------------- | -------------------------------------------------------------- |
-| `name`, `required`, `disabled`                  | Comportamento de campo de formulário.                          |
-| `value`                                         | HTML inicial (alternativa ao conteúdo dentro da tag).          |
-| `mode`                                          | `toolbar` (padrão), `balloon`, `inline`, `notion`, `readonly`. |
-| `toolbar`                                       | `minimal`, `basic`, `full` (padrão).                           |
-| `readonly`                                      | Somente leitura.                                               |
-| `locale`                                        | `pt-BR` (padrão), `en`, `es`.                                  |
-| `placeholder`                                   | Texto do documento vazio.                                      |
-| `min-height`, `max-height`                      | Altura do conteúdo (CSS).                                      |
-| `max-characters`, `max-words`, `max-paragraphs` | Limites aplicados durante a digitação.                         |
-| `min-characters`, `min-words`, `min-paragraphs` | Mínimos exibidos na barra de status.                           |
-| `status-bar="false"`                            | Esconde a barra de status.                                     |
+| Atributo                                        | Descrição                                                                                                                                                                                                               |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`, `required`, `disabled`                  | Comportamento de campo de formulário.                                                                                                                                                                                   |
+| `value`                                         | HTML inicial (alternativa ao conteúdo dentro da tag).                                                                                                                                                                   |
+| `mode`                                          | `toolbar` (padrão), `balloon`, `inline`, `notion`, `readonly`.                                                                                                                                                          |
+| `toolbar`                                       | `minimal`, `basic`, `full` (padrão).                                                                                                                                                                                    |
+| `readonly`                                      | Somente leitura.                                                                                                                                                                                                        |
+| `locale`                                        | `pt-BR` (padrão), `en`, `es`.                                                                                                                                                                                           |
+| `placeholder`                                   | Texto do documento vazio.                                                                                                                                                                                               |
+| `min-height`, `max-height`                      | Altura do conteúdo (CSS).                                                                                                                                                                                               |
+| `max-characters`, `max-words`, `max-paragraphs` | Limites aplicados durante a digitação.                                                                                                                                                                                  |
+| `min-characters`, `min-words`, `min-paragraphs` | Mínimos exibidos na barra de status.                                                                                                                                                                                    |
+| `character-count`                               | Como contar caracteres nos limites e na barra: `noSpaces` (padrão, sem espaços), `withSpaces` (com espaços e um separador entre blocos) ou `text` (texto com espaços, sem separador entre blocos nem quebras de linha). |
+| `status-bar="false"`                            | Esconde a barra de status.                                                                                                                                                                                              |
 
 ### Propriedades e métodos
 
